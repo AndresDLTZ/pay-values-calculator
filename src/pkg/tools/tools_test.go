@@ -1,6 +1,7 @@
 package tools
 
 import (
+	"strconv"
 	"testing"
 	"time"
 )
@@ -19,7 +20,6 @@ var elementInArrayResults = []ElementInArrayResult{
 	{ []string{"MO", "TU", "WE"}, "MM", false },
 	{ []string{"MO", "TU", "WE"}, "", false },
 }
-
 func TestValidateIsElementInArray(t *testing.T) {
 	for index, test := range elementInArrayResults {
 		result := IsElementInArray(test.array, test.key)
@@ -30,6 +30,15 @@ func TestValidateIsElementInArray(t *testing.T) {
 }
 
 // time-tools testing
+func TestParseStringToTime(t *testing.T) {
+	hourStr := "12:45"
+	result := ParseStringToTime(&hourStr)
+	resultStr := strconv.Itoa(result.Hour()) + ":" + strconv.Itoa(result.Minute())
+	if resultStr != hourStr {
+		t.Errorf("Expected result <<%s>> time not given \n\t(%v)", hourStr, resultStr)
+	}
+}
+
 type DiffHourTimeResul struct {
 	startTime time.Time
 	endTime   time.Time
