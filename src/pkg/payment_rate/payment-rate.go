@@ -3,8 +3,10 @@ package payment_rate
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/andresdltz/pay-values-calculator/src/pkg/tools"
 	"io/ioutil"
 	"os"
+	"strings"
 	"sync"
 )
 
@@ -49,4 +51,17 @@ func getJsonToDailyPaymentRate() *[]DaysScheduleRate {
 	}
 	_ = json.Unmarshal(data, &scheduleRates)
 	return &scheduleRates
+}
+
+// GetDurationOfValidHourRange will retrieve a hour range and payment rate,
+// check what schedule it is and return to the hour difference
+func GetDurationOfValidHourRange(hrRange string, sr *ScheduleRate) float64 {
+	hrArr := strings.Split(hrRange, "-")
+	hr1 := tools.ParseStringToTime(&hrArr[0])
+	hr2 := tools.ParseStringToTime(&hrArr[1])
+
+	if !(hr1.Before(tools.ParseStringToTime(&sr.StartTime)) || hr2.After(tools.ParseStringToTime(&sr.EndTime))) {
+		return tools.DiffHourTime(&hr1, &hr2)
+	}
+	return -1
 }
