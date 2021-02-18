@@ -1,6 +1,9 @@
 package validator
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 type NameScheduleResult struct {
 	nameSchedules string
@@ -24,5 +27,15 @@ func TestValidateNameSchedule(t *testing.T) {
 		if err != test.expected {
 			t.Errorf("Expected result not given \n\t(%d: %q)", index, test.nameSchedules)
 		}
+	}
+}
+
+// TestValidateFileExtension
+func TestValidateFileExtension(t *testing.T) {
+	file, _ := os.Open("file-to-test.txt")
+	fileExtensionValidator := NewFileExtensionValidator(file, "txt")
+	err := fileExtensionValidator.ValidateFileExtension()
+	if err != nil {
+		t.Errorf("Expected result not given (files/file-to-test.txt not txt)")
 	}
 }
