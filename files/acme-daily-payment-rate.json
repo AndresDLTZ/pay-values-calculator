@@ -1,0 +1,18 @@
+[
+  {
+    "Days": ["MO", "TU", "WE", "TH", "FR"],
+    "ScheduleRates": [
+      { "StartTime": "00:01", "EndTime": "09:00", "Rate": 25 },
+      { "StartTime": "09:01", "EndTime": "18:00", "Rate": 15 },
+      { "StartTime": "18:01", "EndTime": "00:00", "Rate": 20 }
+    ]
+  },
+  {
+    "Days": ["SA", "SU"],
+    "ScheduleRates": [
+      { "StartTime": "00:01", "EndTime": "09:00", "Rate": 30 },
+      { "StartTime": "09:01", "EndTime": "18:00", "Rate": 20 },
+      { "StartTime": "18:01", "EndTime": "00:00", "Rate": 25 }
+    ]
+  }
+]
