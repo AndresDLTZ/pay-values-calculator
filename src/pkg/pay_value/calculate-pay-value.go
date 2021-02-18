@@ -59,7 +59,7 @@ func calculatePartialPayValue(acmeSR []payment_rate.ScheduleRate, hrRange string
 	if counter == -1 {
 		panic(fmt.Sprintf("No se puede calcular el horario a pagar, horario %s fuera de referencia", hrRange))
 	}
-	duration := tools.GetDurationOfValidHourRange(hrRange, &acmeSR[0])
+	duration := payment_rate.GetDurationOfValidHourRange(hrRange, &acmeSR[0])
 	if duration == -1 { return calculatePartialPayValue(acmeSR[1:], hrRange, counter - 1) }
 	return duration * acmeSR[0].Rate
 }

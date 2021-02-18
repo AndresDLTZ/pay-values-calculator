@@ -39,13 +39,13 @@ func TestParseStringToTime(t *testing.T) {
 	}
 }
 
-type DiffHourTimeResul struct {
+type DiffHourTimeResult struct {
 	startTime time.Time
 	endTime   time.Time
 	expected  float64
 }
 var now = time.Now()
-var diffHourTimeResuls = []DiffHourTimeResul {
+var diffHourTimeResuls = []DiffHourTimeResult{
 	{now, now, 0 },
 	{now, now.Add(1 * time.Hour), 1 },
 	{now, now.Add(2 * time.Hour), 2 },
@@ -54,7 +54,7 @@ var diffHourTimeResuls = []DiffHourTimeResul {
 }
 func TestDiffHourTime(t *testing.T) {
 	for index, test := range diffHourTimeResuls {
-		result := diffHourTime(&test.startTime, &test.endTime)
+		result := DiffHourTime(&test.startTime, &test.endTime)
 		if result != test.expected {
 			t.Errorf("Expected result <<%v>> not given \n\t(%d: %q, %q)", test.expected, index, test.startTime, test.endTime)
 		}
