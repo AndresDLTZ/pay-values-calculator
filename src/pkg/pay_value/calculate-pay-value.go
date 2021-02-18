@@ -18,9 +18,10 @@ func CalculatePayValue(lineCh chan *line_name_schedule.Line, doneCh chan *bool) 
 
 	// loop for create a goroutine for each line
 	for {
-		_, more := <- lineCh
+		line, more := <- lineCh
 		if more {
-			// todo: goroutine to calculate pay value
+			go calculateTotalPayValue(line)
+			continue
 		}
 		close(doneCh)
 		return
