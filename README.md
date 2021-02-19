@@ -96,6 +96,31 @@ together executable file.
 
 3. Open command line terminal and execute `./main`.
 
+```
+Ingrese ruta del archivo con nombre y horarios (.txt): ./files/name-and-schedules1.txt
+
+ASTRID [MO10:00-12:00 TH12:00-14:00 SU20:00-21:00]
+El importe a pagar a ASTRID es: 85.00 USD
+
+RENE [MO10:00-12:00 TU10:00-12:00 TH01:00-03:00 SA14:00-18:00 SU20:00-21:00]
+El importe a pagar a RENE es: 215.00 USD
+
+DAVID==MO10:00-12:00,TU10:00-12:00,TH01:00-03:00,SA14:00-18:00,SU20:00-21:00
+Advertencia: nombre y horarios trabajados no se corresponde con el patrón
+
+MONICA [MO10:00-09:00 TH12:00-14:00 SU20:00-21:00] 
+Advertencia: No se puede calcular el horario a pagar, horario 10:00-09:00 fuera de referencia
+
+ANNA [MO10:00-12:00 TH12:00-14:00 SU20:00-21:00]
+El importe a pagar a ANNA es: 85.00 USD
+
+JAQUE [MO10:00-12:00 TU10:00-12:00 TH01:00-03:00 SA14:00-18:00 SU20:00-21:00]
+El importe a pagar a JAQUE es: 215.00 USD
+
+
+Programa terminado :)
+```
+
 ## Running unit tests
 
 Unit test via Go [testing](https://golang.org/pkg/testing/) 
