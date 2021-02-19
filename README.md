@@ -6,6 +6,7 @@
 - [Approach and Methodology](#approach-and-methodology)
     - [Kanban](#kanban)
     - [Test-Driven Development TDD](#test-driven-development-tdd)
+- [Architecture](#architecture)
 - [Prerequisites](#prerequisites)
 - [Build](#build)
 - [Running unit tests](#running-unit-tests)
@@ -57,6 +58,21 @@ and refactoring code to meet that test.
 
 The project used TDD to think through its requirements and 
 ensure they are met.
+
+## Architecture
+
+This project used design patterns to solve the requirements and 
+provide a more robust and maintainable code.
+
+The singleton creational design pattern is used to provide a 
+single instance of the acme-daily-payment-rate.txt file to avoid 
+having more than a single instance of the file and avoid resource
+consumption. This was done in order to simulate that the daily 
+payment rate data is get from a database.
+
+The facade structural design pattern is used to provide the 
+main's code with an interface to hide the complexity of the pay 
+values calculations of each line of file and have clean code.
 
 ## Prerequisites
 
